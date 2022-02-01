@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="consoleApp.js"></script>
+    
+    
 </head>
-<body onload="addTextNode('ciao')">
-    <p>
+<body>
+    <h1>ANALIZZATORE DI TESTO</h1>
+    <p id="testo" style="font-size: 20px;" contenteditable="true">
         L'Ateniese Milziade, figlio di Cimone, spiccava fra tutti sia per l'antichità della stirpe, sia per la gloria
         degli antenati,
         sia per la propria saggezza ed aveva un'età tale che i suoi concittadini potevano non più solo concepire buone
@@ -29,9 +31,33 @@
         Questo vento infatti sorgendo da settentrione tiene la direzione contraria per chi parte da Atene.
         Milziade, non avendo tempo di trattenersi, indirizzò la rotta verso la sua meta e arrivò nel Chersoneso.
     </p>
-    <p id="stats-paragraph" onload="stats()">
 
-    </p>
-    <button onclick="startSearch()">Search</button>
+
+    
+    <!-- <button onclick="refresh()">Applica modifiche</button> -->
+    <button onclick="startSearch()">SEARCH</button>
+    <h2>Statistiche del testo:</h2>
+    <p id="stats" style="font-size: 20px;"></p>
+
+
+
+    <!-- <textarea name="insert-text" id="insert-text" cols="150" rows="20"></textarea>
+    <br><br>
+
+    <button onclick="startSearch()">SEARCH</button>
+
+    <button class="exame-button" onclick="startExame()">ANALYSE</button>
+    <button class="search-button" onclick="startSearch()">Cerca</button><br><br><br> -->
+    
+    <!-- <button id="clear-button" class="clear-button" onclick="startClean()">CLEAN</button> -->
+    <!-- <br><br><hr id="search-divider" class="search-divider"> -->
+    
+    <!-- <p id="search-result" class="search-result"></p>
+    <p id="stats-paragraph">PARAGRAFO STATISTICHE DEL TESTO<br></p> --> -->
+
+
+    
+    
 </body>
+<script src="consoleApp.js"></script>
 </html>
