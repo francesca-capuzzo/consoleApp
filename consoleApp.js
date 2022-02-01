@@ -198,15 +198,17 @@ function startSearch() {
 // let par = document.getElementById("stats-paragraph");
 // par.innerHTML += "ciao";
 
-function addTextNode(text) {
-    let newtext = document.createTextNode(text);
-    let p1 = document.getElementById("stats-paragraph");
-  
-    p1.appendChild(newtext);
+// function addTextNode(text) {
+//     let newtext = document.createTextNode(text);
+//     let p1 = document.getElementById("stats-paragraph");
+//     p1.appendChild(generateStats(newtext));
+//     alert("stats :" + generateStats(text))
+// } 
+
+function stats(){
+    let par = document.getElementById("stats-paragraph")
+    alert("stats are: " + generateStats(text));
 }
-  
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
