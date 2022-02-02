@@ -200,11 +200,11 @@ console.log(searchWord(text, "che"));
 // let text = document.getElementById("testo").textContent;
 // let stats = "Numero caratteri: " + charNumber.length + "\nNumero parole: " + (countWords(replaceWithSpaces(text))) + "\n\nRipetizione Parole:\n" + repeatedWordsForPage(replaceWithSpaces(text))+ "\nRipetizione Caratteri:\n" + repeatedChars(replaceWithSpaces(text));
 
-// function startSearch() {                                                // BOTTONE SEARCH - apre un prompt (dal bottone html) dove inserire la parola da cercare nel testo ---> ritorna quante volte la parola è presente
-//     const wordToSearch = prompt("inserisci la parola da cercare:");
-//     const arrayOfIndex = searchWord(text, wordToSearch);
-//     alert("le occorrenze di " + wordToSearch + " sono " + arrayOfIndex.length);
-// }
+function startSearch() {                                                // BOTTONE SEARCH - apre un prompt (dal bottone html) dove inserire la parola da cercare nel testo ---> ritorna quante volte la parola è presente
+    const wordToSearch = prompt("inserisci la parola da cercare:");
+    const arrayOfIndex = searchWord(text, wordToSearch);
+    alert("le occorrenze di " + wordToSearch + " sono " + arrayOfIndex.length);
+}
 
 
 // document.getElementById("stats").innerText = stats;
@@ -226,3 +226,9 @@ console.log(searchWord(text, "che"));
 //     p1.innerHTML += "<strong><h2>Dati:</h2></strong>";
 //     generateStats(userText.value, p1);
 // }
+
+function statsText() {
+    let textToAnalyse = document.getElementById("testo"); 
+    const charNumber = textToAnalyse.length; 
+    console.log("Il numero dei caratteri è: " + charNumber);
+}
