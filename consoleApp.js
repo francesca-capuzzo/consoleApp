@@ -110,38 +110,64 @@ console.log(findAllIndexes(text," che "));
 
 
 
-function generateStats(string) {
+function generateStats() {                                                  //tolgo (string) dall'imput della funzione.
+
+    let par = document.getElementById("stats-paragraph");                   //HTML --> creo un collegamento tra il file js e la porzione di html che mi interessa
+    let textArea = document.getElementById("text-to-analyse");              //HTML
+    let string = textArea.value;                                            //HTML
+    par.innerHTML = '';
+
 
     const charNumber = string.length;                                        // 1 - CONTA TUTTI CARATTERI DELLA STRINGA
-    console.log("Il numero dei caratteri è: " + charNumber);
+    //console.log("Il numero dei caratteri è: " + charNumber);
+    let node = document.createTextNode("Il numero dei caratteri è: " + charNumber);    //creo oggetto text node in cui inserisco il testo da riportare nell'HTML
+    par.appendChild(node);                                                              //elemento figlio da infilare dentro al padre (node)
+    let br4 = document.createElement("br");
+    par.appendChild(br4);
+
 
     const clearArrayFromString = cleanStringAndConvertInArray(string);       // 2 - RIPULISCE LA STRINGA DAI CARATTERI SPECIALI E LA TRASFORMA IN ARRAY
 
+
     const wordNumber = clearArrayFromString.length;                          // 3 - CONTA QUANTE PAROLE SONO PRESENTI NELLA STRINGA  
-    console.log("Il numero delle parole è: " + wordNumber);
+    //console.log("Il numero delle parole è: " + wordNumber);
+    let node2 = document.createTextNode("Il numero delle parole è: " + wordNumber);
+    par.appendChild(node2);
+    let br2 = document.createElement("br");
+    par.appendChild(br2);
+    
 
     const wordOccurrency = generateOccurrencyCount(clearArrayFromString);    // 4 - CONTA QUANTE VOLTE SI RIPETE UNA PAROLA
     
     for (const key in wordOccurrency) {
         if (Object.hasOwnProperty.call(wordOccurrency, key)) {
             const count = wordOccurrency[key];
-            console.log("La parola " + key + " compare: " + count + (count === 1 ? " volta" : " volte"));
+            //console.log("La parola " + key + " compare: " + count + (count === 1 ? " volta" : " volte"));
+            let node = document.createTextNode("La parola " + key + " compare: " + count + (count === 1 ? " volta" : " volte"));
+            par.appendChild(node);
+            let br = document.createElement("br");
+            par.appendChild(br);
         }
     }
+    
+    //console.log("--------------------------------------------------------------------------------");
 
-    console.log("--------------------------------------------------------------------------------");
 
     const charOccurrency = generateOccurrencyCount([... string]);            // 5 - CONTA QUANTE VOLTE SI RIPETE UN CARATTERE 
     
     for (const key in charOccurrency) {
         if (Object.hasOwnProperty.call(charOccurrency, key)) {
             const count = charOccurrency[key];
-            console.log("Il carattere " + key + " compare: " + count + (count === 1 ? " volta" : " volte"));
+            //console.log("Il carattere " + key + " compare: " + count + (count === 1 ? " volta" : " volte"));
+            let node = document.createTextNode("Il carattere " + key + " compare: " + count + (count === 1 ? " volta\n" : " volte\n"));
+            par.appendChild(node);
+            let br = document.createElement("br");
+            par.appendChild(br);
         }
     }
 }
 
-console.log(generateStats(text));
+// console.log(generateStats(text));                                         //verrà invocato nel file HTML 
 
 
 
@@ -197,38 +223,10 @@ console.log(searchWord(text, "che"));
 
 
 //////// INCLUSIONE IN HTML /////////////////////////////////////////////////////////////////////////////////////////////////////////
-// let text = document.getElementById("testo").textContent;
-// let stats = "Numero caratteri: " + charNumber.length + "\nNumero parole: " + (countWords(replaceWithSpaces(text))) + "\n\nRipetizione Parole:\n" + repeatedWordsForPage(replaceWithSpaces(text))+ "\nRipetizione Caratteri:\n" + repeatedChars(replaceWithSpaces(text));
+
 
 function startSearch() {                                                // BOTTONE SEARCH - apre un prompt (dal bottone html) dove inserire la parola da cercare nel testo ---> ritorna quante volte la parola è presente
     const wordToSearch = prompt("inserisci la parola da cercare:");
     const arrayOfIndex = searchWord(text, wordToSearch);
     alert("le occorrenze di " + wordToSearch + " sono " + arrayOfIndex.length);
-}
-
-
-// document.getElementById("stats").innerText = stats;
-
-// function refresh(){
-//     text = document.getElementById("testo").textContent;
-//     stats = "Numero caratteri: " + text.length + "\nNumero parole: " + (countWords(replaceWithSpaces(text))) + "\n\nRipetizione Parole:\n" + repeatedWordsForPage(replaceWithSpaces(text)) + "\nRipetizione Caratteri:\n" + repeatedChars(replaceWithSpaces(text));
-//     document.getElementById("stats").innerText = stats;
-// }
-
-
-
-// function startExame() {
-//     const userText = document.getElementById("insert-text");
-//     const p1 = document.getElementById("stats-paragraph");
-//     const b1 = document.getElementById("clear-button");
-//     b1.style.visibility = "visible";
-//     p1.innerHTML = "";
-//     p1.innerHTML += "<strong><h2>Dati:</h2></strong>";
-//     generateStats(userText.value, p1);
-// }
-
-function statsText() {
-    let textToAnalyse = document.getElementById("testo"); 
-    const charNumber = textToAnalyse.length; 
-    console.log("Il numero dei caratteri è: " + charNumber);
 }
